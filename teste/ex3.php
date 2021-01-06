@@ -1,4 +1,5 @@
 <?php
+
         $num= array();
         for($i=0; $i<15; $i++){
             $num[$i]=rand(1,1000);
