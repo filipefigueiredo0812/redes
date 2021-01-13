@@ -1,5 +1,5 @@
 <?php
-if($_SETVER['REQUEST_METHOD']=="GET"){
+if($_SERVER['REQUEST_METHOD']=="GET"){
     if(isset($_GET['filme']) && is_numeric($_GET['filme'])){
         $idFilme = $_GET['filme'];
         $con = new mysqli("localhost","root","","filmes");
