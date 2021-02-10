@@ -1,5 +1,5 @@
 <?php
-    $idFilme=$_GET['filme'];
+$idFilme=$_GET['filme'];
     if($_SERVER['REQUEST_METHOD']=='POST'){
         $titulo = "";
         $sinopse = "";
@@ -13,7 +13,7 @@
         }
 
         if(isset($_POST['sinopse'])){
-            $sinopse= $_POST['sinopse'];
+            $sinopse = $_POST['sinopse'];
         }
 
         if(isset($_POST['quantidade']) && is_numeric($_POST['quantidade'])){
@@ -21,15 +21,13 @@
         }
 
         if(isset($_POST['idioma'])){
-            $idioma= $_POST['idioma'];
+            $idioma = $_POST['idioma'];
         }
 
         if(isset($_POST['data_lancamento'])){
-            $data_lancamento= $_POST['data_lancamento'];
+            $data_lancamento = $_POST['data_lancamento'];
         }
-
         $con = new mysqli("localhost","root","","filmes");
-
         if($con->connect_errno!=0){
             echo "Ocorreu um erro no acesso à base de dados.<br>".$con->connect_error;
             exit;
@@ -45,9 +43,6 @@
                 echo '<script>alert("Filme alterado com sucesso!!");</script>';
                 echo "Aguarde um momento. A reencaminhar página";
                 header("refresh:5; url=index.php");
-            }
-            else{
-
             }
         }
     }
