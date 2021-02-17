@@ -25,12 +25,22 @@
                     echo '<br>';
                 }
                 $stm->close();
+                echo "<br>";
+                $stm = $con->prepare('select * from utilizadores');
+                $stm->execute();
+                $res=$stm->get_result();
+                 while($resultado = $res->fetch_assoc()){
+                    if($resultado['id'] == $_SESSION['id_user']){
+                        echo '<a href="editar_utilizadores.php?utilizadores='.$resultado['id'].'">Editar Utilizador</a><br>';
+                    }
+                }
+
             ?>
         <br>
-        <button> <a href="filmes_create.php">Adicionar</a></button>
         <?php
-           if($_SESSION['login']== "correto" && isset($_SESSION['login'])){
-               echo"<p><a href='processa_logout.php'>Logout</a>     <a href='utilizadores.php'>Lista Utilizadores</a>------";
+           if($_SESSION['login']== "correto"){ 
+                echo"<button> <a href='filmes_create.php'>Adicionar</a></button>";
+                echo"<p><a href='processa_logout.php'>Logout</a>     <a href='utilizadores.php'>Lista Utilizadores</a>";
             }
             else{
                 echo" <p><a href='login.php'>Login</a>     <a href='register.php'>Register</a></p>";
