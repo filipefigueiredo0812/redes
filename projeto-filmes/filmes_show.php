@@ -7,7 +7,7 @@
         if($_SERVER['REQUEST_METHOD']=="GET"){
             if(!isset($_GET['filme']) || !is_numeric($_GET['filme'])){
 
-                echo '<script>alert("Erro ao abirir filme");</script>';
+                echo '<script>alert("Erro ao abrir filme");</script>';
                 echo 'Aguarde um momento.A reencaminhar pagina';
                 header("refresh:5; url=index.php");
                 exit();
@@ -70,7 +70,7 @@
                 echo '<a href="filmes_delete.php?filme='.$filme['id_filme']. '">Eliminar</a><br>';
             }
             else{
-                echo '<h2>Parece que o filme selecionado nao exite</h2>';
+                echo '<h2>Parece que o filme selecionado não existe</h2>';
             }
         ?>
         </body>
@@ -79,7 +79,7 @@
     }
     else {
         echo  "Precisa estar logado. <br>" ;
-        echo  "Um ser redirecionado para uma página de login" ;
+        echo  "Irá ser redirecionado para uma página de login" ;
         header("refresh: 5; url = login.php");
     }
 ?>

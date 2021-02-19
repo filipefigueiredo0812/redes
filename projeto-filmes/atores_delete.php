@@ -16,14 +16,14 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
             $stm->close();
             echo ("<script>alert('Ator eliminado com sucesso');</script>");
             echo 'Aguarde um momento. A reencaminar página';
-            header("refresh:5; url=index.php");
+            header("refresh:5; url=atores_index.php");
         }
         else{
             echo '<br>';
             echo $con->error;
             echo '<br>';
             echo "Aguarde um momento. A reencaminhar página";
-            header("refresh:5; url=index.php");
+            header("refresh:5; url=atores_index.php");
         }
     }
  }

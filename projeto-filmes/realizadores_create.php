@@ -25,21 +25,21 @@
             exit;
         }
         else{
-            $sql = 'insert into atores(nome,data_nascimento,nacionalidade) values(?,?,?)';
+            $sql = 'insert into realizadores(nome,data_nascimento,nacionalidade) values(?,?,?)';
             $stm = $con->prepare($sql);
             if($stm!=false){
                 $stm->bind_param('sss',$nome,$data_nascimento,$nacionalidade);
                 $stm->execute();
                 $stm->close();
                 
-                echo '<script>alert("Ator adicionado com sucesso");</script>';
+                echo '<script>alert("Realizador adicionado com sucesso");</script>';
                 echo 'Aguarde um momento. A reencaminhar página';
-                header("refresh:5; url=atores_index.php");
+                header("refresh:5; url=realizadores_index.php");
             }
             else{
                 echo($con->error);
                 echo "Aguarde um momento. A reencaminhar página";
-                header("refresh:5;url=atores_index.php");
+                header("refresh:5;url=realizadores_index.php");
             }
         }
     }
@@ -52,8 +52,8 @@
     
 </head>
 <body>
-    <h1>Adicionar Ator</h1><br>
-    <form action="atores_create.php" method="post"><br>
+    <h1>Adicionar Realizador</h1><br>
+    <form action="realizadores_create.php" method="post"><br>
     <label>Nome</label><input type="text" name="nome" required><br><br>
     <label>Data Nacimento</label><input type="date" name="data_nascimento"><br><br>
     <label>Nacionalidade</label><input type="text" name="nacionalidade"><br><br>

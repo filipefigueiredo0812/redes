@@ -27,9 +27,9 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
 <body>
     <h1>Editar utilizadores</h1>
     <form action='utilizadores_update.php?utilizadores=<?php echo $idUser ?>' method="post">
-        <label>Nick</label><input type="text" name="user_name" required><br>
-        <label>Email</label><input type="text" name="email" required><br>
         <label>Nome</label><input type="text" name="nome" required><br>
+        <label>UserName</label><input type="text" name="user_name" required><br>
+        <label>Email</label><input type="text" name="email" required><br>
         <input type="submit" name="enviar"><br>
     </form>
 </body>
