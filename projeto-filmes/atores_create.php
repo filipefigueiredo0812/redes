@@ -49,7 +49,7 @@
 <html>
 <head>
     <meta charset="ISO-8859-1">
-    
+    <link rel="stylesheet" type='text/css' href="style.css">
 </head>
 <body>
     <h1>Adicionar Ator</h1><br>

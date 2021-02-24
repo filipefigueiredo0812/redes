@@ -11,6 +11,7 @@
         <head>
         <meta charset="ISO-8859-1">
         <title>filmes</title>
+        <link rel="stylesheet" type='text/css' href="style.css">
         </head>
         <body>
         <h1> Lista de filmes</h1>
@@ -41,8 +42,8 @@
             ?>
         <br>
         <?php
-            echo "<button> <a href='atores_index.php'>Atores</a></button><br><br>";
-            echo "<button> <a href='realizadores_index.php'>Realizadores</a></button><br><br>";
+            echo "<button class='button4'> <a href='atores_index.php'>Atores</a></button><br><br>";
+            echo "<button class='button4'> <a href='realizadores_index.php'>Realizadores</a></button><br><br>";
             $a=0;
             if(!empty($_SESSION['login'])){  
                 if($_SESSION['login']== "correto"){
@@ -50,11 +51,11 @@
                 }
             }
             if($a==1){ 
-                echo"<button> <a href='filmes_create.php'>Adicionar Livro</a></button><br><br>";
-                echo"<button><a href='processa_logout.php'>Logout</a></button>    <button><a href='utilizadores.php'>Lista Utilizadores</a></button>";
+                echo"<button class='button4'> <a href='filmes_create.php'>Adicionar Livro</a></button><br><br>";
+                echo"<button class='button4'><a href='processa_logout.php'>Logout</a></button>    <button class='button4'><a href='utilizadores.php'>Lista Utilizadores</a></button>";
             }
             else{
-                echo"<button><a href='login.php'>Login</a></button>    <button><a href='register.php'>Register</a></button>";
+                echo"<button class='button4'><a href='login.php'>Login</a></button>    <button class='button4'><a href='register.php'>Register</a></button>";
             }
         ?>
         </body>

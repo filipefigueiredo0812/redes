@@ -11,6 +11,7 @@
         <head>
             <meta charset="ISO-8859-1">
             <title>Filmes</title>
+            <link rel="stylesheet" type='text/css' href="style.css">
         </head>
         <body>
             <h1>Lista de Utilizadores</h1>

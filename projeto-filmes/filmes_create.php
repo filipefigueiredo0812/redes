@@ -65,6 +65,7 @@
     <head>
     <meta charset="ISO-8859-1">
     <title>Adicionar filmes</title>
+    <link rel="stylesheet" type='text/css' href="style.css">
     </head>
     <body>
     <h1>Adicionar filmes</h1>

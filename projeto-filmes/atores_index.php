@@ -10,6 +10,7 @@
         <html>
         <head>
         <meta charset="ISO-8859-1">
+        <link rel="stylesheet" type='text/css' href="style.css">
         <title>filmes</title>
         </head>
         <body>
@@ -25,7 +26,6 @@
                     echo'</a>';
                     echo '<br>';
                 }
-                $stm->close();
                 echo "<br>";
                 $stm = $con->prepare('select * from utilizadores');
                 $stm->execute();
@@ -40,8 +40,8 @@
             ?>
         <br>
         <?php
-            echo "<button> <a href='index.php'>Filmes</a></button><br><br>";
-            echo "<button> <a href='realizadores_index.php'>Realizadores</a></button><br><br>";
+            echo "<button class='button4'> <a href='index.php'>Filmes</a></button><br><br>";
+            echo "<button class='button4'> <a href='realizadores_index.php'>Realizadores</a></button><br><br>";
             $a=0;
             if(!empty($_SESSION['login'])){  
                 if($_SESSION['login']== "correto"){
@@ -49,11 +49,11 @@
                 }
             }
             if($a==1){ 
-                echo"<button> <a href='atores_create.php'>Adicionar Ator</a></button><br><br>";
-                echo"<button><a href='processa_logout.php'>Logout</a></button>    <button><a href='utilizadores.php'>Lista Utilizadores</a></button>";
+                echo"<button class='button4'> <a href='atores_create.php'>Adicionar Ator</a></button><br><br>";
+                echo"<button class='button4'><a href='processa_logout.php'>Logout</a></button>    <button class='button4'><a href='utilizadores.php'>Lista Utilizadores</a></button>";
             }
             else{
-                echo"<button><a href='login.php'>Login</a></button>    <button><a href='register.php'>Register</a></button>";
+                echo"<button class='button4'><a href='login.php'>Login</a></button>    <button class='button4'><a href='register.php'>Register</a></button>";
             }
         ?>
         </body>

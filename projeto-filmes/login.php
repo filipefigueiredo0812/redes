@@ -3,6 +3,7 @@
     <head>
         <meta charset="ISO-8859-1">
         <title>Login</title>
+        <link rel="stylesheet" type='text/css' href="style.css">
     </head>
     <body>
         <h1>Login</h1>

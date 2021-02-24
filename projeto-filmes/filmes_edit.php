@@ -31,6 +31,7 @@ if($_SESSION['login']=="correto" && isset($_SESSION['login'])){
 <head>
     <meta charset="ISO-8859-1">
     <tile>Editar filme</title>
+    <link rel="stylesheet" type='text/css' href="style.css">
 </head>
 <body>
     <h1>Editar filmes</h1>

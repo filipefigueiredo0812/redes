@@ -46,6 +46,7 @@
         <head>
         <meta charset="utf-8">
         <title>Detalhes</title>
+        <link rel="stylesheet" type='text/css' href="style.css">
         <body>
         <h1>Detalhes do filme</h1>
         <?php

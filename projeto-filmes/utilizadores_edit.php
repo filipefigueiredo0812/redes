@@ -23,6 +23,7 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
 <head>
     <meta charset="ISO-8859-1">
     <title>Editar utilizadores</title>
+    <link rel="stylesheet" type='text/css' href="style.css">
 </head>
 <body>
     <h1>Editar utilizadores</h1>

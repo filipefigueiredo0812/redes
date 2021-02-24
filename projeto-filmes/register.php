@@ -1,5 +1,9 @@
 <!DOCTYPOE html>
 	<html>
+		<head>
+		<link rel="stylesheet" type='text/css' href="style.css">
+		<title>Register</title>
+		</head>
 	<body>
 		<h1>Register</h1>
 		<form method="post" action="processa_register.php">
