@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(!isset($_SESSION['login'])){
     $_SESSION['login']="incorreto";
 }
@@ -21,7 +22,7 @@ if($_SESSION['login']=="correto" && isset($_SESSION['login'])){
             $stm->bind_param("i",$idMuseu);
             $stm->execute();
             $res=$stm->get_result();
-            $livro = $res->fetch_assoc();
+            $museu = $res->fetch_assoc();
             $stm->close();
         }
     

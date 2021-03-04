@@ -1,4 +1,5 @@
 <?php
+session_start();
 $idFilme=$_GET['filme'];
     if($_SERVER['REQUEST_METHOD']=='POST'){
         $titulo = "";

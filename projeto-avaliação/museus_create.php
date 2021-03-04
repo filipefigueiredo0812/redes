@@ -6,11 +6,19 @@
     if($_SESSION['login']=="correto" && isset($_SESSION['login'])){
         if($_SERVER['REQUEST_METHOD']=="POST"){
             $nome="";
+            $lugar="";
+            $pais="";
             if(isset($_POST['nome'])){
-                $titulo=$_POST['nome'];
+                $nome=$_POST['nome'];
             }
             else{
                 echo '<script>alert("É obrigatório o preenchimento do nome.");</script>';
+            }
+            if(isset($_POST['lugar'])){
+                $lugar=$_POST['lugar'];
+            }
+            if(isset($_POST['pais'])){
+                $pais=$_POST['pais'];
             }
             
             $con=new mysqli("localhost","root","","museus");
@@ -25,10 +33,10 @@
                 }
         
                 else{
-                    $sql = 'insert into museus(nome) values(?)';
+                    $sql = 'insert into museus(nome,lugar,pais) values(?,?,?)';
                     $stm = $con->prepare($sql);
                     if($stm!=false){
-                        $stm->bind_param('s',$nome);
+                        $stm->bind_param('sss',$nome,$lugar,$pais);
                         $stm->execute();
                         $stm->close();
                         echo '<script>alert("Museu adicionado com sucesso");</script>';

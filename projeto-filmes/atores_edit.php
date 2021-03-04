@@ -1,4 +1,5 @@
 <?php
+session_start();
 if($_SERVER['REQUEST_METHOD']=="GET"){
     if(isset($_GET['ator']) && is_numeric($_GET['ator'])){
         $idAtor = $_GET['ator'];

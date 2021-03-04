@@ -20,7 +20,7 @@
 					$password_encriptada=$util['password'];
 					$verify = password_verify($password, $password_encriptada);
 
-					$_SESSION['id_user']=$util['id'];
+					$_SESSION['id']=$util['id'];
 
 					if($verify==True){
 						$_SESSION['login']="correto";

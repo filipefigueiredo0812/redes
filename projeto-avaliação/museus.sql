@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Fev-2021 às 14:41
+-- Tempo de geração: 04-Mar-2021 às 13:27
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.0
 
@@ -29,8 +29,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `museus` (
   `id_museu` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL
+  `nome` varchar(100) DEFAULT NULL,
+  `lugar` varchar(100) DEFAULT NULL,
+  `pais` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `museus`
+--
+
+INSERT INTO `museus` (`id_museu`, `nome`, `lugar`, `pais`) VALUES
+(2, 'A', 'A', 'A');
 
 -- --------------------------------------------------------
 
@@ -40,8 +49,8 @@ CREATE TABLE `museus` (
 
 CREATE TABLE `obras` (
   `id_obra` int(11) NOT NULL,
-  `id_museu` int(11) NOT NULL,
-  `titulo` varchar(100) NOT NULL,
+  `id_museu` int(11) DEFAULT NULL,
+  `titulo` varchar(100) DEFAULT NULL,
   `ano` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -60,8 +69,27 @@ CREATE TABLE `utilizadores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Extraindo dados da tabela `utilizadores`
+--
+
+INSERT INTO `utilizadores` (`id`, `nome`, `user_name`, `email`, `password`) VALUES
+(2, 'Filipe', 'filipe', 'filipe@gmail.com', '$2y$10$Earw37CGk7lGcyOrYsVtBeSDU98ERon.4pc0M.4E3aBnuy6WArtcW');
+
+--
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices para tabela `museus`
+--
+ALTER TABLE `museus`
+  ADD PRIMARY KEY (`id_museu`);
+
+--
+-- Índices para tabela `obras`
+--
+ALTER TABLE `obras`
+  ADD PRIMARY KEY (`id_obra`);
 
 --
 -- Índices para tabela `utilizadores`
@@ -74,10 +102,22 @@ ALTER TABLE `utilizadores`
 --
 
 --
+-- AUTO_INCREMENT de tabela `museus`
+--
+ALTER TABLE `museus`
+  MODIFY `id_museu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `obras`
+--
+ALTER TABLE `obras`
+  MODIFY `id_obra` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `utilizadores`
 --
 ALTER TABLE `utilizadores`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
