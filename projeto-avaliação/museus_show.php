@@ -21,7 +21,7 @@
                 exit();
             }
             else{
-                $sql='select * from museus where id_museu=?';
+                $sql='select * from museus obras where id_museu=?';
                 $stm=$con->prepare($sql);
                 if($stm!=false){
                     $stm->bind_param('i',$idMuseu);
@@ -30,6 +30,7 @@
                     $museu=$res->fetch_assoc();
                     $stm->close();
                 }
+                
                 else{
                     echo '<br>';
                     echo ($con->error);
@@ -60,9 +61,17 @@
                 echo '<br><br>';
                 echo "País: ";
                 echo $museu['pais'];
-                echo '<br><br>'; 
+                echo '<br><br>';
+                echo "Obras: ";
+                foreach($obra as $obras){
+                    echo '<br><a href="obras_show.php?obra='.$resultado['id_obra'].'">';
+                }
+                echo '<br><br>';
+                echo '<br><br>';
                 echo '<a href="museus_edit.php?museu='.$museu['id_museu']. '">Editar</a><br>';
                 echo '<a href="museus_delete.php?museu='.$museu['id_museu']. '">Eliminar</a><br>';
+                echo '<br>';
+                echo '<a href="obras_create.php?museu='.$museu['id_museu']. '">Adicionar Obra</a><br>';
             }
             else{
                 echo '<h2>Parece que o museu selecionado não existe</h2>';

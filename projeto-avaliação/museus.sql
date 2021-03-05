@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Mar-2021 às 13:27
+-- Tempo de geração: 05-Mar-2021 às 19:51
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.0
 
@@ -53,6 +53,14 @@ CREATE TABLE `obras` (
   `titulo` varchar(100) DEFAULT NULL,
   `ano` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `obras`
+--
+
+INSERT INTO `obras` (`id_obra`, `id_museu`, `titulo`, `ano`) VALUES
+(1, 1, 'ABC', '2000-09-09'),
+(2, 1, 'DEF', '1850-02-22');
 
 -- --------------------------------------------------------
 
@@ -111,7 +119,7 @@ ALTER TABLE `museus`
 -- AUTO_INCREMENT de tabela `obras`
 --
 ALTER TABLE `obras`
-  MODIFY `id_obra` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_obra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `utilizadores`
