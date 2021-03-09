@@ -14,12 +14,12 @@
         <link rel="stylesheet" type='text/css' href="style.css">
         </head>
         <body>
-        <h1> Lista de Museus</h1>
+        <h1 style="text-align: center"> Lista de Museus</h1>
             <?php
                 $stm=$con->prepare('select * from museus');
                 $stm->execute();
                 $res=$stm->get_result();
-                echo"<br>Museus: ";
+                echo"<br><p style='text-align:center; font-size: 20px'>Museus: ";
                 while($resultado=$res->fetch_assoc()){
                     echo '<br><a href="museus_show.php?museu='.$resultado['id_museu'].'">';
                     echo $resultado['nome'];
@@ -37,13 +37,11 @@
 
                     }
                     elseif($resultado['id'] == $_SESSION['id_user'])
-                        echo '<br><button class="button4"><a href="utilizadores_edit.php?utilizadores='.$resultado['id'].'">Editar Utilizador</a></button><br>';
+                        echo '<br><a href="utilizadores_edit.php?utilizadores='.$resultado['id'].'">Editar Utilizador</a><br>';
                     }
             ?>
         <br>
         <?php
-            echo "<button class='button4'> <a href='obras_index.php'>Obras</a></button><br><br>";
-            
             $a=0;
             if(!empty($_SESSION['login'])){  
                 if($_SESSION['login']== "correto"){

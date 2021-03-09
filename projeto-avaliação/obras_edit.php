@@ -1,20 +1,20 @@
 <?php
 session_start();
 if($_SERVER['REQUEST_METHOD']=="GET"){
-    if(isset($_GET['ator']) && is_numeric($_GET['ator'])){
-        $idAtor = $_GET['ator'];
+    if(isset($_GET['obra']) && is_numeric($_GET['obra'])){
+        $idObra = $_GET['obra'];
         $con = new mysqli("localhost","root","","museus");
         if($con->connect_errno!=0){
             echo "<h1>Ocorreu um erro no acesso à base de dados.<br>".$con->connect_error."</h1>";
             exit();
         }
-        $sql = "Select * from atores where id_ator=?";
+        $sql = "Select * from obras where id_obra=?";
         $stm = $con->prepare($sql);
         if($stm!=false){
-            $stm->bind_param("i",$idAtor);
+            $stm->bind_param("i",$idObra);
             $stm->execute();
             $res=$stm->get_result();
-            $livro = $res->fetch_assoc();
+            $obra = $res->fetch_assoc();
             $stm->close();
         }
 ?>
@@ -25,11 +25,11 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
     <link rel="stylesheet" type='text/css' href="style.css">
 </head>
 <body>
-    <h1>Editar Ator</h1>
-    <form action="atores_update.php?ator=<?php echo $livro['id_ator']; ?>" method="post">
-        <label>Nome</label><input type="text" name="nome" required value="<?php echo $livro['nome'];?>"><br>
-        <label>Data Nascimento</label><input type="date" name="data_nascimento" required value="<?php echo $livro['data_nascimento'];?>"><br>
-        <label>Nacionalidade</label><input type="text" name="nacionalidade" required value="<?php echo $livro['nacionalidade'];?>"><br>
+    <h1>Editar Obra</h1>
+    <form action="obras_update.php?obra=<?php echo $obra['id_obra']; ?>" method="post">
+        <label>Titulo</label><input type="text" name="titulo" required value="<?php echo $obra['titulo'];?>"><br>
+        <label>Ano</label><input type="date" name="ano" required value="<?php echo $obra['ano'];?>"><br>
+        
         <input type="submit" name="enviar"><br>
     </form>
 </body>
@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
  }
  else{
      echo ("<h1>Houve um erro ao processar o seu pedido.<br>Dentro de segundos será reencaminhado!</h1>");
-     header("refresh:5; url=atores_index.php");
+     header("refresh:5; url=index.php");
  }
 }
 ?>

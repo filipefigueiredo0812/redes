@@ -5,13 +5,13 @@
     }
     if($_SESSION['login']== "correto" && isset($_SESSION['login'])){
         if($_SERVER['REQUEST_METHOD']=="GET"){
-            if(!isset($_GET['ator']) || !is_numeric($_GET['ator'])){
+            if(!isset($_GET['obra']) || !is_numeric($_GET['obra'])){
                 echo '<script>alert("Erro ao abrir");</script>';
                 echo 'Aguarde um momento.A reencaminhar pagina';
-                header("refresh:5; url=atores_index.php");
+                header("refresh:5; url=index.php");
                 exit();
             }
-            $idAtor=$_GET['ator'];
+            $idObra=$_GET['obra'];
             $con=new mysqli("localhost","root","","museus");
 
             if($con->connect_error!=0){
@@ -20,13 +20,13 @@
                 exit();
             }
             else{
-                $sql='select * from atores where id_ator=?';
+                $sql='select * from obras where id_obra=?';
                 $stm=$con->prepare($sql);
                 if($stm!=false){
-                    $stm->bind_param('i',$idAtor);
+                    $stm->bind_param('i',$idObra);
                     $stm->execute();
                     $res=$stm->get_result();
-                    $ator=$res->fetch_assoc();
+                    $obra=$res->fetch_assoc();
                     $stm->close();
                 }
                 else{
@@ -35,7 +35,7 @@
                     echo'<br>';
                     echo"Aguarde um momento.A reencaminhar pagina";
                     echo'<br>';
-                    header("refresh:5; url=atores_index.php");
+                    header("refresh:5; url=index.php");
                 }
             }
         }
@@ -47,25 +47,23 @@
         <title>Detalhes</title>
         <link rel="stylesheet" type='text/css' href="style.css">
         <body>
-        <h1>Detalhes do Ator</h1>
+        <h1 style="text-align: center">Detalhes do Obra</h1>
+        <p style='text-align:center; font-size: 20px'>
         <?php
-            if(isset($ator)){
+            if(isset($obra)){
                 echo '<br><br>';
-                echo "Ator: ";
-                echo $ator['nome'];
+                echo "Obra: ";
+                echo $obra['titulo'];
                 echo '<br><br>';
-                echo "Data Nascimento: ";
-                echo $ator['data_nascimento'];
-                echo '<br><br>';
-                echo "Nacionalidade: ";
-                echo $ator['nacionalidade'];
+                echo "Ano: ";
+                echo $obra['ano'];
                 echo '<br><br>';
                 echo '<br><br>'; 
-                echo '<a href="atores_edit.php?ator='.$ator['id_ator']. '">Editar</a><br>';
-                echo '<a href="atores_delete.php?ator='.$ator['id_ator']. '">Eliminar</a><br>';
+                echo '<a href="obras_edit.php?obra='.$obra['id_obra']. '">Editar</a><br>';
+                echo '<a href="obras_delete.php?obra='.$obra['id_obra']. '">Eliminar</a><br>';
             }
             else{
-                echo '<h2>Parece que o ator selecionado não existe</h2>';
+                echo '<h2>Parece que a obra selecionado não existe</h2>';
             }
         ?>
         </body>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Mar-2021 às 19:51
+-- Tempo de geração: 09-Mar-2021 às 21:54
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.0
 
@@ -39,7 +39,8 @@ CREATE TABLE `museus` (
 --
 
 INSERT INTO `museus` (`id_museu`, `nome`, `lugar`, `pais`) VALUES
-(2, 'A', 'A', 'A');
+(2, 'A', 'A', 'A'),
+(3, 'B', 'B', 'B');
 
 -- --------------------------------------------------------
 
@@ -59,8 +60,9 @@ CREATE TABLE `obras` (
 --
 
 INSERT INTO `obras` (`id_obra`, `id_museu`, `titulo`, `ano`) VALUES
-(1, 1, 'ABC', '2000-09-09'),
-(2, 1, 'DEF', '1850-02-22');
+(1, 2, 'ABC', '2000-09-09'),
+(2, 2, 'DEF', '1850-02-22'),
+(20, 3, 'final', '2021-03-10');
 
 -- --------------------------------------------------------
 
@@ -81,7 +83,7 @@ CREATE TABLE `utilizadores` (
 --
 
 INSERT INTO `utilizadores` (`id`, `nome`, `user_name`, `email`, `password`) VALUES
-(2, 'Filipe', 'filipe', 'filipe@gmail.com', '$2y$10$Earw37CGk7lGcyOrYsVtBeSDU98ERon.4pc0M.4E3aBnuy6WArtcW');
+(1, 'Filipe', 'filipe', 'filipe@gmail.com', '$2y$10$Earw37CGk7lGcyOrYsVtBeSDU98ERon.4pc0M.4E3aBnuy6WArtcW');
 
 --
 -- Índices para tabelas despejadas
@@ -97,7 +99,8 @@ ALTER TABLE `museus`
 -- Índices para tabela `obras`
 --
 ALTER TABLE `obras`
-  ADD PRIMARY KEY (`id_obra`);
+  ADD PRIMARY KEY (`id_obra`),
+  ADD KEY `id_museu` (`id_museu`);
 
 --
 -- Índices para tabela `utilizadores`
@@ -113,13 +116,13 @@ ALTER TABLE `utilizadores`
 -- AUTO_INCREMENT de tabela `museus`
 --
 ALTER TABLE `museus`
-  MODIFY `id_museu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_museu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `obras`
 --
 ALTER TABLE `obras`
-  MODIFY `id_obra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_obra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de tabela `utilizadores`
